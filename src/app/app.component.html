@@ -1,0 +1,60 @@
+<div>
+	<h1>
+		Task 1
+	</h1>
+
+	<!--> Using ngModel , we will pass this username from html
+  of this component to its own ts file -->
+
+	<input type="text" [(ngModel)]="username" />
+
+	<div>{{ username }}</div>
+</div>
+
+<div>
+	<h1> Task 2 </h1>
+
+	<!--> Using localref , we will pass this localrefval from html
+  of this component to another location within this html -->
+
+	<input type="text" #localrefval value="This value appears using local ref" />
+
+	<div>{{ localrefval.value }}</div>
+</div>
+
+<div>
+	<h1> Task 3 </h1>
+
+	<!--> Using property binding we'll pass property values
+  from html to same ts file and between two components as
+  parent to child -->
+
+	<button [disabled]="buttonvar"> button text </button>
+
+	<!-- Here we pass both event and property across parent and
+child components-->
+
+	<app-work [passed_from_parent]="buttonvar" (falsebool)="recieveChild($event)">
+
+	</app-work>
+
+
+</div>
+
+<div>
+  <h1> Task 4 </h1>
+
+  <input type="number" (change)="getNum($event)">
+
+  <app-computation [num]="factinput"></app-computation>
+
+</div>
+
+
+<div>
+  <h1> Task 5 </h1>
+
+  <button (click)="changeEven()"> Even number button </button>
+  <div appEvencolor> {{ evennum }} </div>
+
+</div>
